@@ -38,7 +38,7 @@ const Header = () => {
         <li>Language</li>
         <li>Sinab ko&apos;ring</li>
       </ul>
-      <button className="hidden md:block bg-red-300 rounded-full px-4 py-2 hover:bg-blue-300">
+      <button className="button">
         Button
       </button>
     </nav>
