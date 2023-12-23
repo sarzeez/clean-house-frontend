@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from 'react'
+import Logo from '../assets/imgs/logo.png'
+import Image from 'next/image';
+import { FaBars, FaTimes } from "react-icons/fa"
 
 type Link = {
   id: number;
@@ -25,22 +28,50 @@ const navLinks: Link[] = [
 ];
 
 const Header = () => {
+
+  
+  const [color, setColor] = useState<boolean>(false);
+  const [show, setShow] = useState(false);
+  const changeColor = () => {
+    if (window.screenY >= 100) {
+      setColor(true)
+    } else {
+      setColor(false)
+    }
+  }
+  const handleClick = () => {
+    setShow(!show)
+  }
+
   return (
-    <nav className="flex justify-between px-4 py-2 bg-green-400 text-[2rem] font-bold text-white">
-      <h1>Logo</h1>
-      <ul className="flex gap-2">
+    <nav className=" container flex items-center justify-between py-2 text-[18px] font-bold text-black">
+      <div className=" flex items-center gap-3">
+        <Image src={Logo.src} width={44} height={44} alt="logo" />
+        <h1 className="text-[2rem] text-primary">Toza Makon</h1>
+      </div>
+      <ul className=" md:block w-full h-screen flex flex-col items-center justify-center  absolute z-[-3] bg-red left-[-100] transition-[0.35s] lg:flex-row gap-5">
         {navLinks.map((item) => (
           <li key={item.id}>{item.title}</li>
         ))}
       </ul>
-      <ul className="flex gap-2">
-        <li>Dark mode</li>
-        <li>Language</li>
-        <li>Sinab ko&apos;ring</li>
+      <ul className="flex gap-4">
+        <li className=" text-[1.3rem] text-primary">Dark mode</li>
+        {/* <select className="">
+          <option value="#">uz</option>
+          <option value="#">en</option>
+        </select> */}
       </ul>
-      <button className="button">
-        Button
+      <button className="button hidden lg:block">
+        Ilovamizni sinab ko&apos;ring
       </button>
+
+      <div className=" lg:hidden" onClick={handleClick}>
+        {show ? (<FaTimes size={20} style={{ color: "#0FC36D" }} />
+        ) : (
+          <FaBars size={20} style={{ color: "#0FC36D" }} />
+        )}
+
+      </div>
     </nav>
   );
 };
