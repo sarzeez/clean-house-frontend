@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./header";
+import Xizmatlar from "@/pages/xizmatlar/xizmatlar";
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ const Layout = (props: Props) => {
       <title>{props.title}</title>
       <Header />
       <div>{props.children}</div>
+      <Xizmatlar />
     </>
   );
 };

@@ -45,22 +45,22 @@ const Header = () => {
 
   return (
     <nav className=" container flex items-center justify-between py-2 text-[18px] font-bold text-black">
-      <div className=" flex items-center gap-3">
+      <div className="flex items-center gap-3">
         <Image src={Logo.src} width={44} height={44} alt="logo" />
-        <h1 className="text-[2rem] text-primary">Toza Makon</h1>
+        <h1 className="text-[2rem] whitespace-nowrap text-primary">Toza Makon</h1>
       </div>
-      <ul className=" md:block w-full h-screen flex flex-col items-center justify-center  absolute z-[-3] bg-red left-[-100] transition-[0.35s] lg:flex-row gap-5">
+      <ul className=" block w-full md:flex flex-col md:flex-row items-center justify-center 0 transition-[0.35s] lg:flex-row gap-5">
         {navLinks.map((item) => (
           <li key={item.id}>{item.title}</li>
         ))}
       </ul>
-      <ul className="flex gap-4">
-        <li className=" text-[1.3rem] text-primary">Dark mode</li>
+      {/* <ul className="flex gap-4"> */}
+        {/* <li className="text-[1.3rem] whitespace-nowrap text-primary">Dark mode</li> */}
         {/* <select className="">
           <option value="#">uz</option>
           <option value="#">en</option>
         </select> */}
-      </ul>
+      {/* </ul> */}
       <button className="button hidden lg:block">
         Ilovamizni sinab ko&apos;ring
       </button>
